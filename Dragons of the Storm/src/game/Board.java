@@ -35,12 +35,12 @@ public class Board extends JPanel implements ActionListener{
 		img = background.getImage();
 		time = new Timer(5, this);
 		time.start();
-		
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent reDraw) {
 		d.move();
+		d.jump();
 		repaint();
 	}
 	
@@ -48,18 +48,23 @@ public class Board extends JPanel implements ActionListener{
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
 		
-		g2d.drawImage(img, 0, 0, null);
-		g2d.drawImage(d.getImage(), d.getX(), d.getY(), null);
+		g2d.drawImage(img, 685-d.nx2, 0, null);
+		if(d.getX() > 700)g2d.drawImage(img, 685-d.nx2, 0, null);
+		g2d.drawImage(d.getImage(), 75, d.getY(), null);
 	}
 	
 	private class ActionListener extends KeyAdapter{
-		
 		public void keyReleased(KeyEvent e){
-			d.keyReleased(e);
+			d.moveReleased(e);
 		}
-		
 		public void keyPressed(KeyEvent e){
-			d.keyPressed(e);
+			d.movePressed(e);
+		}
+		public void jumpReleased(KeyEvent e){
+			d.spaceReleased(e);
+		}
+		public void jumpPressed(KeyEvent e){
+			d.spacePressed(e);
 		}
 	}
 }

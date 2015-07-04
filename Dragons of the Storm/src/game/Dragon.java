@@ -15,21 +15,26 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 public class Dragon {
-	int xPos, dx, yPos;
+	int xPos, dx, yPos, dy, nx, nx2;
 	Image dragon;
 	
 	public Dragon(){
-		ImageIcon dr = new ImageIcon(getClass().getResource("Flarebrass.png"));
+		ImageIcon dr = new ImageIcon(getClass().getResource("dragon.png"));
 		dragon = dr.getImage();
-		xPos = 20;
+		xPos = 75;
 		yPos = 370;
+		nx2 = 685;
 		
 	}
 	
 	public void move(){
 		xPos = xPos + dx;
+		nx2 = nx2 + dx;
 	}
 	
+	public void jump(){
+		yPos = yPos + dy;
+	}
 	public int getX(){
 		return xPos;
 	}
@@ -42,23 +47,25 @@ public class Dragon {
 		return dragon;
 	}
 	
-	public void keyPressed(KeyEvent e){
+	public void movePressed(KeyEvent e){
 		int key = e.getKeyCode();
-		if(key == KeyEvent.VK_A){
-			dx = -1;
-		}
-		if(key == KeyEvent.VK_D){
-			dx = 1;
-		}
+		if(key == KeyEvent.VK_A)dx = -1;
+		if(key == KeyEvent.VK_D)dx = 1;
 	}
 	
-	public void keyReleased(KeyEvent e){
+	public void moveReleased(KeyEvent e){
 		int key = e.getKeyCode();
-		if(key == KeyEvent.VK_A){
-			dx = 0;
-		}
-		if(key == KeyEvent.VK_D){
-			dx = 0;
-		}
+		if(key == KeyEvent.VK_A)dx = 0;
+		if(key == KeyEvent.VK_D)dx = 0;
+	}
+	
+	public void spacePressed(KeyEvent e){
+		int key = e.getKeyCode();
+		if(key == KeyEvent.VK_SPACE)dy = 20;
+	}
+	
+	public void spaceReleased(KeyEvent e){
+		int key = e.getKeyCode();
+		if(key == KeyEvent.VK_SPACE)dy = -20;
 	}
 }

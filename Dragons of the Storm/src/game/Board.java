@@ -29,9 +29,9 @@ public class Board extends JPanel implements ActionListener{
 	
 	public Board(){
 		d = new Dragon();
-		addKeyListener(null);
+		addKeyListener(new ActionListener());
 		setFocusable(true);
-		ImageIcon background = new ImageIcon("C:/Users/DoTerra/Downloads/Backgroud.jpg");
+		ImageIcon background = new ImageIcon(getClass().getResource("scene.png"));;
 		img = background.getImage();
 		time = new Timer(5, this);
 		time.start();
@@ -53,6 +53,7 @@ public class Board extends JPanel implements ActionListener{
 	}
 	
 	private class ActionListener extends KeyAdapter{
+		
 		public void keyReleased(KeyEvent e){
 			d.keyReleased(e);
 		}

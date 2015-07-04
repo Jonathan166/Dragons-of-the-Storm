@@ -10,6 +10,7 @@
 package game;
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 
@@ -18,10 +19,10 @@ public class Dragon {
 	Image dragon;
 	
 	public Dragon(){
-		ImageIcon dr = new ImageIcon("Flarebrass.jpg");
+		ImageIcon dr = new ImageIcon(getClass().getResource("Flarebrass.png"));
 		dragon = dr.getImage();
-		xPos = 10;
-		yPos = 50;
+		xPos = 20;
+		yPos = 370;
 		
 	}
 	
@@ -37,5 +38,27 @@ public class Dragon {
 		return yPos;
 	}
 	
+	public Image getImage(){
+		return dragon;
+	}
 	
+	public void keyPressed(KeyEvent e){
+		int key = e.getKeyCode();
+		if(key == KeyEvent.VK_A){
+			dx = -1;
+		}
+		if(key == KeyEvent.VK_D){
+			dx = 1;
+		}
+	}
+	
+	public void keyReleased(KeyEvent e){
+		int key = e.getKeyCode();
+		if(key == KeyEvent.VK_A){
+			dx = 0;
+		}
+		if(key == KeyEvent.VK_D){
+			dx = 0;
+		}
+	}
 }

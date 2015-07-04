@@ -14,6 +14,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -21,7 +23,7 @@ import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener{
 	
-	public Image img;
+	Image img;
 	Timer time;
 	Dragon d;
 	
@@ -44,9 +46,19 @@ public class Board extends JPanel implements ActionListener{
 	
 	public void paint(Graphics g){
 		super.paint(g);
-		Graphics2D g2d = (Graphics2d) g;
+		Graphics2D g2d = (Graphics2D) g;
 		
 		g2d.drawImage(img, 0, 0, null);
 		g2d.drawImage(d.getImage(), d.getX(), d.getY(), null);
+	}
+	
+	private class ActionListener extends KeyAdapter{
+		public void keyReleased(KeyEvent e){
+			d.keyReleased(e);
+		}
+		
+		public void keyPressed(KeyEvent e){
+			d.keyPressed(e);
+		}
 	}
 }

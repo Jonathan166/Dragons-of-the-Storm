@@ -19,7 +19,7 @@ public class Dragon {
 	Image dragon;
 
 	ImageIcon dr = new ImageIcon(getClass().getResource("dragon.png"));
-	ImageIcon dl = new ImageIcon(getClass().getResource("Dragon.gif"));
+	ImageIcon dl = new ImageIcon(getClass().getResource("dragon1.png"));
 	
 	public Dragon(){
 		dragon = dr.getImage();

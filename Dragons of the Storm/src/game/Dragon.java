@@ -18,13 +18,13 @@ public class Dragon {
 	int xPos, dx, yPos, dy, nx, nx2;
 	Image dragon;
 
-	ImageIcon dr = new ImageIcon(getClass().getResource("dragon1.png"));
-	ImageIcon dl = new ImageIcon(getClass().getResource("dragon1.png"));
+	ImageIcon dr = new ImageIcon(getClass().getResource("dragon.png"));
+	ImageIcon dl = new ImageIcon(getClass().getResource("Dragon.gif"));
 	
 	public Dragon(){
 		dragon = dr.getImage();
 		xPos = 75;
-		yPos = 370;
+		yPos = 550;
 		nx2 = 685;
 		
 	}

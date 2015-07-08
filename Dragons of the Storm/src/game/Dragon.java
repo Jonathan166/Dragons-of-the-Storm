@@ -17,9 +17,11 @@ import javax.swing.ImageIcon;
 public class Dragon {
 	int xPos, dx, yPos, dy, nx, nx2;
 	Image dragon;
+
+	ImageIcon dr = new ImageIcon(getClass().getResource("dragon1.png"));
+	ImageIcon dl = new ImageIcon(getClass().getResource("dragon1.png"));
 	
 	public Dragon(){
-		ImageIcon dr = new ImageIcon(getClass().getResource("dragon.png"));
 		dragon = dr.getImage();
 		xPos = 75;
 		yPos = 370;
@@ -49,8 +51,14 @@ public class Dragon {
 	
 	public void movePressed(KeyEvent e){
 		int key = e.getKeyCode();
-		if(key == KeyEvent.VK_A)dx = -1;
-		if(key == KeyEvent.VK_D)dx = 1;
+		if(key == KeyEvent.VK_A){
+			dx = -5;
+			dragon = dl.getImage();
+		}
+		if(key == KeyEvent.VK_D){
+			dx = 5;
+			dragon = dr.getImage();
+		}
 	}
 	
 	public void moveReleased(KeyEvent e){

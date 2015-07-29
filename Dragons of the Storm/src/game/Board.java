@@ -32,7 +32,7 @@ public class Board extends JPanel implements ActionListener{
 		d = new Dragon();
 		addKeyListener(new ActionListener());
 		setFocusable(true);
-		ImageIcon background = new ImageIcon(getClass().getResource("scene.png"));;
+		ImageIcon background = new ImageIcon(getClass().getResource("BackGround.png"));;
 		img = background.getImage();
 		time = new Timer(5, this);
 		time.start();
